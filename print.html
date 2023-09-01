@@ -1,0 +1,847 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title></title>
+        <meta name="robots" content="noindex" />
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction/introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="introduction/installation.html"><strong aria-hidden="true">1.1.</strong> Installation and Setup</a></li><li class="chapter-item expanded "><a href="introduction/first-stack.html"><strong aria-hidden="true">1.2.</strong> Creating Your First Stack</a></li></ol></li><li class="chapter-item expanded "><a href="infra-as-code/infra-as-code.html"><strong aria-hidden="true">2.</strong> Defining Infrastructure with Code</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="infra-as-code/creating-resources.html"><strong aria-hidden="true">2.1.</strong> Creating Resources</a></li><li class="chapter-item expanded "><a href="infra-as-code/configuring-resources.html"><strong aria-hidden="true">2.2.</strong> Configuring Resources</a></li><li class="chapter-item expanded "><a href="infra-as-code/using-variables.html"><strong aria-hidden="true">2.3.</strong> Using Variables</a></li></ol></li><li class="chapter-item expanded "><a href="stacks-and-environments/stacks-and-environments.html"><strong aria-hidden="true">3.</strong> Managing Stacks and Environments</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="stacks-and-environments/multiple-stacks.html"><strong aria-hidden="true">3.1.</strong> Multiple Stacks</a></li><li class="chapter-item expanded "><a href="stacks-and-environments/configuration-and-secrets.html"><strong aria-hidden="true">3.2.</strong> Configuration and Secrets</a></li><li class="chapter-item expanded "><a href="stacks-and-environments/stack-updates.html"><strong aria-hidden="true">3.3.</strong> Stack Updates</a></li></ol></li><li class="chapter-item expanded "><a href="real-world-scenarios/real-world-scenarios.html"><strong aria-hidden="true">4.</strong> Working with Real-World Scenarios</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="real-world-scenarios/web-application-deployment.html"><strong aria-hidden="true">4.1.</strong> Web Application Deployment</a></li><li class="chapter-item expanded "><a href="real-world-scenarios/serverless-backend.html"><strong aria-hidden="true">4.2.</strong> Serverless Backend</a></li></ol></li><li class="chapter-item expanded "><a href="testing-and-ci/testing-and-ci.html"><strong aria-hidden="true">5.</strong> Testing and Continuous Integration</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="testing-and-ci/testing-infrastructure-code.html"><strong aria-hidden="true">5.1.</strong> Testing Infrastructure Code</a></li><li class="chapter-item expanded "><a href="testing-and-ci/continuous-integration.html"><strong aria-hidden="true">5.2.</strong> Continuous Integration</a></li></ol></li><li class="chapter-item expanded "><a href="collaboration-and-best-practices/collaboration-and-best-practices.html"><strong aria-hidden="true">6.</strong> Collaboration and Best Practices</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="collaboration-and-best-practices/collaboration.html"><strong aria-hidden="true">6.1.</strong> Collaboration</a></li><li class="chapter-item expanded "><a href="collaboration-and-best-practices/best-practices.html"><strong aria-hidden="true">6.2.</strong> Best Practices</a></li></ol></li><li class="chapter-item expanded "><a href="advanced-topics/advanced-topics.html"><strong aria-hidden="true">7.</strong> Advanced Topics</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="advanced-topics/custom-resources.html"><strong aria-hidden="true">7.1.</strong> Custom Resources</a></li><li class="chapter-item expanded "><a href="advanced-topics/remote-stacks.html"><strong aria-hidden="true">7.2.</strong> Remote Stacks</a></li><li class="chapter-item expanded "><a href="advanced-topics/pulumi-crosswalk-for-azure.html"><strong aria-hidden="true">7.3.</strong> Pulumi Crosswalk for Azure</a></li></ol></li><li class="chapter-item expanded "><a href="conclusion/conclusion.html"><strong aria-hidden="true">8.</strong> Conclusion</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
+<h1 id="comprehensive-pulumi-tutorial-infrastructure-as-code-with-real-world-examples"><a class="header" href="#comprehensive-pulumi-tutorial-infrastructure-as-code-with-real-world-examples">Comprehensive Pulumi Tutorial: Infrastructure as Code with Real-World Examples</a></h1>
+<p>Welcome to the Comprehensive Pulumi Tutorial! In this tutorial, we'll dive deep into Pulumi—an open-source infrastructure as code (IaC) platform that allows you to create, deploy, and manage cloud resources using familiar programming languages. Whether you're new to infrastructure as code or looking to enhance your existing skills, this tutorial will provide you with a solid foundation and advanced techniques to manage your cloud infrastructure efficiently.</p>
+<h2 id="1-introduction-to-pulumi"><a class="header" href="#1-introduction-to-pulumi">1. Introduction to Pulumi <a name="introduction-to-pulumi"></a></a></h2>
+<p>Pulumi is a modern infrastructure as code platform that lets you define, deploy, and manage cloud infrastructure using your favorite programming languages, such as Python, TypeScript, Go, and more. Unlike traditional IaC tools, Pulumi allows you to use general-purpose programming languages to define your infrastructure, enabling you to take full advantage of features like code reusability, modularity, and control flow.</p>
+<p>In this tutorial, you'll learn how to use Pulumi to create and manage cloud resources across various cloud providers, including AWS, Azure, Google Cloud, and Kubernetes. We'll cover everything from setting up your development environment to deploying complex applications using Pulumi.</p>
+<p>Whether you're a developer, DevOps engineer, or cloud architect, mastering Pulumi will empower you to treat your infrastructure as just another piece of code.</p>
+<p><strong>What You'll Learn:</strong></p>
+<ul>
+<li>How Pulumi simplifies infrastructure provisioning and management.</li>
+<li>Installation and configuration of the Pulumi CLI.</li>
+<li>Defining cloud resources using real code.</li>
+<li>Managing multiple stacks and environments.</li>
+<li>Deploying and updating stacks.</li>
+<li>Working on real-world scenarios using Pulumi.</li>
+<li>Writing tests for your infrastructure code.</li>
+<li>Best practices for collaboration and team workflows.</li>
+<li>Exploring advanced Pulumi features for complex use cases.</li>
+</ul>
+<p>So, let's jump right in and get started with installing and setting up Pulumi!</p>
+<p>In the next section, we'll guide you through the installation process and help you set up your development environment for Pulumi.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="installation-and-setup"><a class="header" href="#installation-and-setup">Installation and Setup</a></h1>
+<p>Setting up Pulumi is straightforward, and you'll be up and running in no time. Pulumi supports multiple programming languages, so you can choose the one you're most comfortable with. In this tutorial, we'll focus on using TypeScript for our examples.</p>
+<p><strong>Prerequisites:</strong></p>
+<ul>
+<li>Basic understanding of cloud computing concepts.</li>
+<li>Familiarity with a programming language (JavaScript/TypeScript preferred).</li>
+</ul>
+<p><strong>Steps:</strong></p>
+<ol>
+<li><a href="introduction/installation.html#install-pulumi-cli">Install Pulumi CLI</a></li>
+<li><a href="introduction/installation.html#configure-cloud-provider">Configure Your Cloud Provider</a></li>
+<li><a href="introduction/installation.html#initialize-new-project">Initialize a New Project</a></li>
+</ol>
+<h3 id="21-install-pulumi-cli"><a class="header" href="#21-install-pulumi-cli">2.1 Install Pulumi CLI <a name="install-pulumi-cli"></a></a></h3>
+<p>To get started, you need to install the Pulumi CLI, which is the command-line interface used to interact with Pulumi.</p>
+<pre><code class="language-bash">npm install -g pulumi
+</code></pre>
+<h3 id="22-configure-your-cloud-provider"><a class="header" href="#22-configure-your-cloud-provider">2.2 Configure Your Cloud Provider <a name="configure-cloud-provider"></a></a></h3>
+<p>Before you start creating resources, you'll need to configure your cloud provider credentials. For example, to configure AWS credentials:</p>
+<pre><code class="language-bash">pulumi login
+pulumi config set aws:region us-west-1
+pulumi config set aws:accessKey &lt;your-access-key&gt;
+pulumi config set aws:secretKey &lt;your-secret-key&gt;
+</code></pre>
+<h3 id="23-initialize-a-new-project"><a class="header" href="#23-initialize-a-new-project">2.3 Initialize a New Project <a name="initialize-new-project"></a></a></h3>
+<p>Let's create a new directory for your Pulumi project and initialize it.</p>
+<pre><code class="language-bash">mkdir pulumi-tutorial
+cd pulumi-tutorial
+pulumi new aws-typescript
+</code></pre>
+<p>This will guide you through project setup and generate some initial files.</p>
+<p>In the next section, we'll create your first Pulumi stack and define some infrastructure using code.</p>
+<hr />
+<p>This introduction is just the beginning of your journey to mastering Pulumi. The tutorial will continue to cover various aspects of Pulumi, from creating resources and managing stacks to working with real-world scenarios and advanced features.</p>
+<p>Keep following along to explore the power of Pulumi as you progress through the tutorial!</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="creating-your-first-stack"><a class="header" href="#creating-your-first-stack">Creating Your First Stack</a></h1>
+<h2 id="3-creating-your-first-stack"><a class="header" href="#3-creating-your-first-stack">3. Creating Your First Stack</a></h2>
+<p>Now that you have Pulumi installed and your Azure credentials configured, it's time to create your first Pulumi stack. A stack is a deployment target for your infrastructure code. You can think of it as an isolated environment where your resources will be provisioned.</p>
+<p><strong>Steps:</strong></p>
+<ol>
+<li>
+<p><strong>Create a New Stack</strong>: In your Pulumi project directory, create a new stack using the following command:</p>
+<pre><code class="language-bash">pulumi stack init my-first-stack
+</code></pre>
+<p>This command initializes a new stack named <code>my-first-stack</code>. You can choose any name that makes sense for your project.</p>
+</li>
+<li>
+<p><strong>Initialize Your Stack</strong>: Before defining your Azure resources, you need to initialize your stack. This step sets up the necessary configuration for your project.</p>
+<pre><code class="language-bash">pulumi up
+</code></pre>
+<p>Follow the prompts to log in to your Azure account if prompted.</p>
+</li>
+<li>
+<p><strong>Define Your Azure Resources</strong>: In your Pulumi project directory, open the <code>index.ts</code> file. This is where you'll define your Azure resources using TypeScript.</p>
+<p>Here's a simple example that creates an Azure Storage Account:</p>
+<pre><code class="language-typescript">import * as pulumi from &quot;@pulumi/pulumi&quot;;
+import * as azure from &quot;@pulumi/azure&quot;;
+
+const storageAccount = new azure.storage.Account(&quot;mystorageaccount&quot;, {
+    resourceGroupName: resourceGroup.name,
+    accountReplicationType: &quot;LRS&quot;,
+    accountTier: &quot;Standard&quot;,
+});
+</code></pre>
+<p>You can define various Azure resources like virtual machines, databases, storage accounts, and more using the <code>@pulumi/azure</code> library.</p>
+</li>
+<li>
+<p><strong>Preview and Deploy</strong>: After defining your resources, it's time to preview the changes and deploy them to Azure.</p>
+<pre><code class="language-bash">pulumi up
+</code></pre>
+<p>Pulumi will analyze your code, show you the changes it's about to make, and prompt you for confirmation. Review the changes carefully, and if everything looks good, confirm the deployment.</p>
+</li>
+</ol>
+<p>Congratulations! You've just created and deployed your first Azure resources using Pulumi. In the next section, we'll delve deeper into defining infrastructure with code.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="defining-infrastructure-with-code"><a class="header" href="#defining-infrastructure-with-code">Defining Infrastructure with Code</a></h1>
+<h2 id="4-defining-infrastructure-with-code"><a class="header" href="#4-defining-infrastructure-with-code">4. Defining Infrastructure with Code</a></h2>
+<p>Pulumi allows you to define your infrastructure using real code, which means you can use programming constructs, loops, conditionals, and variables to create and manage your resources. This section will explore various aspects of defining infrastructure with Pulumi.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="creating-resources"><a class="header" href="#creating-resources">Creating Resources</a></h1>
+<h3 id="41-creating-resources"><a class="header" href="#41-creating-resources">4.1 Creating Resources</a></h3>
+<p>In Pulumi, you can create resources using classes provided by the Azure library. Here's an example of creating an Azure Storage Account:</p>
+<pre><code class="language-typescript">import * as pulumi from &quot;@pulumi/pulumi&quot;;
+import * as azure from &quot;@pulumi/azure&quot;;
+
+const storageAccount = new azure.storage.Account(&quot;mystorageaccount&quot;, {
+    resourceGroupName: resourceGroup.name,
+    accountReplicationType: &quot;LRS&quot;,
+    accountTier: &quot;Standard&quot;,
+});
+</code></pre>
+<p>In this example, we're creating an Azure Storage Account named &quot;mystorageaccount&quot; in the same resource group as defined earlier. The <code>accountReplicationType</code> specifies the replication type, and <code>accountTier</code> defines the performance tier of the storage account.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="configuring-resources"><a class="header" href="#configuring-resources">Configuring Resources</a></h1>
+<h3 id="42-configuring-resources"><a class="header" href="#42-configuring-resources">4.2 Configuring Resources</a></h3>
+<p>You can configure resource properties using TypeScript objects. For instance, configuring a storage container:</p>
+<pre><code class="language-typescript">const storageContainer = new azure.storage.Container(&quot;mycontainer&quot;, {
+    storageAccountName: storageAccount.name,
+    containerAccessType: &quot;private&quot;,
+});
+</code></pre>
+<p>Here, we're creating a private storage container within the previously created storage account.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="using-variables"><a class="header" href="#using-variables">Using Variables</a></h1>
+<h3 id="43-using-variables"><a class="header" href="#43-using-variables">4.3 Using Variables</a></h3>
+<p>You can use variables to make your code more dynamic. For example, defining a variable for the storage account name:</p>
+<pre><code class="language-typescript">const storageAccountName = &quot;mystorageaccount&quot;;
+
+const storageAccount = new azure.storage.Account(storageAccountName, {
+    // ...
+});
+</code></pre>
+<p>This allows you to change the storage account name easily without modifying the resource definition.</p>
+<p>In the next sections, we'll explore more advanced topics like managing multiple stacks, handling configuration, and updating stacks.</p>
+<hr />
+<p>Stay tuned for the upcoming sections where we'll explore advanced Pulumi concepts and work on real-world scenarios using Pulumi with Azure!</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="managing-stacks-and-environments"><a class="header" href="#managing-stacks-and-environments">Managing Stacks and Environments</a></h1>
+<p>Certainly, let's focus on Section 5, &quot;Managing Stacks and Environments,&quot; and provide more detailed content.</p>
+<h2 id="5-managing-stacks-and-environments"><a class="header" href="#5-managing-stacks-and-environments">5. Managing Stacks and Environments</a></h2>
+<p>Pulumi's ability to manage multiple stacks and handle configurations makes it a powerful tool for managing infrastructure across various environments. In this section, we'll delve deeper into each aspect of managing stacks and environments.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="multiple-stacks"><a class="header" href="#multiple-stacks">Multiple Stacks</a></h1>
+<h3 id="51-multiple-stacks"><a class="header" href="#51-multiple-stacks">5.1 Multiple Stacks</a></h3>
+<h4 id="why-use-multiple-stacks"><a class="header" href="#why-use-multiple-stacks">Why Use Multiple Stacks?</a></h4>
+<p>Using multiple stacks is crucial when you need to manage infrastructure across different environments, such as development, staging, and production. Each stack represents a specific environment and allows you to isolate and deploy resources independently.</p>
+<h4 id="creating-a-new-stack"><a class="header" href="#creating-a-new-stack">Creating a New Stack</a></h4>
+<p>To create a new stack, use the following command:</p>
+<pre><code class="language-bash">pulumi stack init &lt;stack-name&gt;
+</code></pre>
+<p>For instance, to create a development stack:</p>
+<pre><code class="language-bash">pulumi stack init dev
+</code></pre>
+<h4 id="switching-between-stacks"><a class="header" href="#switching-between-stacks">Switching Between Stacks</a></h4>
+<p>You can easily switch between stacks using:</p>
+<pre><code class="language-bash">pulumi stack select &lt;stack-name&gt;
+</code></pre>
+<p>For example:</p>
+<pre><code class="language-bash">pulumi stack select dev
+</code></pre>
+<h4 id="benefits-of-multiple-stacks"><a class="header" href="#benefits-of-multiple-stacks">Benefits of Multiple Stacks</a></h4>
+<ul>
+<li>
+<p><strong>Isolation</strong>: Each stack operates independently, reducing the risk of affecting other environments during changes or updates.</p>
+</li>
+<li>
+<p><strong>Configuration Management</strong>: You can set different configuration values for each stack, tailoring them to specific environments.</p>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="configuration-and-secrets"><a class="header" href="#configuration-and-secrets">Configuration and Secrets</a></h1>
+<h3 id="52-configuration-and-secrets"><a class="header" href="#52-configuration-and-secrets">5.2 Configuration and Secrets</a></h3>
+<h4 id="configuration-values"><a class="header" href="#configuration-values">Configuration Values</a></h4>
+<p>Pulumi allows you to configure your infrastructure with variables. This flexibility is handy when you need to adapt your code for various environments.</p>
+<p>To set a configuration value:</p>
+<pre><code class="language-bash">pulumi config set &lt;key&gt; &lt;value&gt;
+</code></pre>
+<p>For example:</p>
+<pre><code class="language-bash">pulumi config set vmCount 3
+</code></pre>
+<p>In your code, you can access these values like this:</p>
+<pre><code class="language-typescript">const vmCount = pulumi.config.getNumber(&quot;vmCount&quot;) || 1; // Default to 1 if not set
+</code></pre>
+<h4 id="secrets"><a class="header" href="#secrets">Secrets</a></h4>
+<p>Pulumi also provides a secure way to store secrets, such as database passwords, using its secret mechanism:</p>
+<pre><code class="language-bash">pulumi config set --secret dbPassword SecretPassword123
+</code></pre>
+<p>In your code, retrieve secrets like this:</p>
+<pre><code class="language-typescript">const dbPassword = pulumi.secret(pulumi.config.require(&quot;dbPassword&quot;));
+</code></pre>
+<h4 id="benefits-of-configuration-management"><a class="header" href="#benefits-of-configuration-management">Benefits of Configuration Management</a></h4>
+<ul>
+<li>
+<p><strong>Environment Flexibility</strong>: Configuration values make it easy to adapt your code for different environments without modifying the code itself.</p>
+</li>
+<li>
+<p><strong>Security</strong>: Storing secrets securely ensures sensitive information is protected.</p>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="stack-updates"><a class="header" href="#stack-updates">Stack Updates</a></h1>
+<h3 id="53-stack-updates"><a class="header" href="#53-stack-updates">5.3 Stack Updates</a></h3>
+<h4 id="updating-stacks"><a class="header" href="#updating-stacks">Updating Stacks</a></h4>
+<p>As your infrastructure requirements evolve, you'll need to update your stacks. Pulumi makes this process straightforward.</p>
+<ol>
+<li>
+<p>Make changes to your Pulumi code.</p>
+</li>
+<li>
+<p>Run:</p>
+<pre><code class="language-bash">pulumi up
+</code></pre>
+<p>Pulumi analyzes the changes and prompts you to confirm the update. It applies only the necessary changes to reach the desired state.</p>
+</li>
+</ol>
+<h4 id="benefits-of-stack-updates"><a class="header" href="#benefits-of-stack-updates">Benefits of Stack Updates</a></h4>
+<ul>
+<li>
+<p><strong>Efficiency</strong>: Pulumi updates only what has changed, avoiding unnecessary recreation of resources.</p>
+</li>
+<li>
+<p><strong>Safety</strong>: The confirmation step ensures you're aware of changes before they are applied.</p>
+</li>
+</ul>
+<p>In the next section, we'll dive into real-world scenarios and explore how to deploy a web application using Pulumi with Azure.</p>
+<p>Stay tuned for more detailed content on working with real-world scenarios!</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="working-with-real-world-scenarios"><a class="header" href="#working-with-real-world-scenarios">Working with Real-World Scenarios</a></h1>
+<p>In this section, we'll apply what we've learned so far by exploring real-world scenarios using Pulumi with Azure. We'll cover two common scenarios: web application deployment and creating a serverless backend.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="web-application-deployment"><a class="header" href="#web-application-deployment">Web Application Deployment</a></h1>
+<h3 id="61-web-application-deployment"><a class="header" href="#61-web-application-deployment">6.1 Web Application Deployment</a></h3>
+<h4 id="scenario-overview"><a class="header" href="#scenario-overview">Scenario Overview</a></h4>
+<p>In this scenario, we'll deploy a simple web application to Azure App Service using Pulumi. Azure App Service is a fully managed platform for building, deploying, and scaling web apps. We'll guide you through each step, demonstrating how Pulumi simplifies the deployment process.</p>
+<h4 id="steps"><a class="header" href="#steps">Steps</a></h4>
+<ol>
+<li>
+<p><strong>Define an Azure App Service</strong>: In your Pulumi code, define an Azure App Service to host your web application.</p>
+<pre><code class="language-typescript">const appService = new azure.appservice.AppService(&quot;myAppService&quot;, {
+    resourceGroupName: resourceGroup.name,
+    appServicePlanId: appServicePlan.id,
+    siteConfig: {
+        alwaysOn: true,
+        // Other configurations...
+    },
+});
+</code></pre>
+</li>
+<li>
+<p><strong>Configure Application Code</strong>: Add your web application code and configure it to deploy to the App Service.</p>
+</li>
+<li>
+<p><strong>Run <code>pulumi up</code></strong>: Execute the <code>pulumi up</code> command to deploy the web application to Azure.</p>
+</li>
+</ol>
+<p>By the end of this scenario, you'll have a web application running on Azure App Service.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="62-serverless-backend"><a class="header" href="#62-serverless-backend">6.2 Serverless Backend</a></h1>
+<h4 id="scenario-overview-1"><a class="header" href="#scenario-overview-1">Scenario Overview</a></h4>
+<p>In this scenario, we'll create a serverless backend using Azure Functions. Azure Functions allow you to run code in response to events without managing infrastructure. We'll guide you through each step to set up an Azure Function App and deploy serverless functions.</p>
+<h4 id="steps-1"><a class="header" href="#steps-1">Steps</a></h4>
+<ol>
+<li>
+<p><strong>Define an Azure Function App</strong>: In your Pulumi code, define an Azure Function App that will host your serverless functions.</p>
+<pre><code class="language-typescript">const functionApp = new azure.appservice.FunctionApp(&quot;myFunctionApp&quot;, {
+    resourceGroupName: resourceGroup.name,
+    appServicePlanId: appServicePlan.id,
+    version: &quot;~3&quot;,
+    storageAccountName: storageAccount.name,
+    osType: &quot;Linux&quot;,
+    runtime: &quot;node&quot;,
+});
+</code></pre>
+</li>
+<li>
+<p><strong>Deploy Code for Functions</strong>: Write your serverless functions code and deploy it to the Function App.</p>
+</li>
+<li>
+<p><strong>Run <code>pulumi up</code></strong>: Execute the <code>pulumi up</code> command to create the serverless backend using Azure Functions.</p>
+</li>
+</ol>
+<p>By the end of this scenario, you'll have a working serverless backend running on Azure.</p>
+<p>These real-world scenarios will provide you with practical experience in using Pulumi to deploy applications and serverless functions in Azure. </p>
+<p>In the upcoming sections, we'll cover testing, continuous integration, collaboration best practices, and explore advanced topics in Pulumi.</p>
+<p>Stay engaged as we delve deeper into the world of Pulumi and Azure!</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="testing-and-continuous-integration"><a class="header" href="#testing-and-continuous-integration">Testing and Continuous Integration</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="testing-infrastructure-code"><a class="header" href="#testing-infrastructure-code">Testing Infrastructure Code</a></h1>
+<p>Testing is a crucial part of developing reliable infrastructure code. It helps ensure that your infrastructure deployments are predictable and free from errors. In this section, we'll explore how to set up testing for your Pulumi code using Jest, a widely used JavaScript testing framework.</p>
+<h3 id="71-why-test-infrastructure-code"><a class="header" href="#71-why-test-infrastructure-code">7.1 Why Test Infrastructure Code?</a></h3>
+<p>Testing infrastructure code offers several benefits:</p>
+<ul>
+<li><strong>Reliability</strong>: Tests help ensure that your infrastructure behaves as expected, reducing the risk of unexpected issues in production.</li>
+<li><strong>Documentation</strong>: Tests serve as documentation for your code, providing clear examples of how it should be used.</li>
+<li><strong>Regression Prevention</strong>: Tests catch regressions, ensuring that changes to your codebase do not break existing functionality.</li>
+<li><strong>Confidence</strong>: A comprehensive test suite gives you confidence in the correctness of your infrastructure.</li>
+</ul>
+<h3 id="72-setting-up-jest-for-pulumi"><a class="header" href="#72-setting-up-jest-for-pulumi">7.2 Setting Up Jest for Pulumi</a></h3>
+<h4 id="prerequisites"><a class="header" href="#prerequisites">Prerequisites</a></h4>
+<p>Before setting up Jest for your Pulumi project, make sure you have Jest and any necessary dependencies installed. You can do this by running:</p>
+<pre><code class="language-bash">npm install --save-dev jest @pulumi/pulumi @azure/arm-storage
+</code></pre>
+<h4 id="writing-tests"><a class="header" href="#writing-tests">Writing Tests</a></h4>
+<p>Let's create a basic test for a Pulumi resource. Suppose you have a Pulumi program that deploys an Azure Storage Account, and your code looks like this:</p>
+<pre><code class="language-javascript">const pulumi = require(&quot;@pulumi/pulumi&quot;);
+const azure = require(&quot;@pulumi/azure&quot;);
+
+class MyStorageAccount extends pulumi.ComponentResource {
+    constructor(name, opts) {
+        super(&quot;custom:MyStorageAccount&quot;, name, {}, opts);
+
+        const storageAccount = new azure.storage.Account(name, {
+            resourceGroupName: opts.resourceGroupName,
+            accountReplicationType: &quot;LRS&quot;,
+            accountTier: &quot;Standard&quot;,
+        }, { parent: this });
+
+        this.endpoint = storageAccount.primaryBlobEndpoint;
+        this.registerOutputs();
+    }
+}
+
+module.exports = MyStorageAccount;
+</code></pre>
+<p>You can write a Jest test for this resource like so:</p>
+<pre><code class="language-javascript">const MyStorageAccount = require(&quot;./myStorageAccount&quot;);
+
+describe(&quot;MyStorageAccount&quot;, () =&gt; {
+    it(&quot;creates a storage account with the correct settings&quot;, () =&gt; {
+        const resource = new MyStorageAccount(&quot;testStorageAccount&quot;, {
+            resourceGroupName: &quot;testResourceGroup&quot;,
+        });
+        
+        expect(resource.endpoint).toEqual(expect.stringContaining(&quot;blob.core.windows.net&quot;));
+        // Add more assertions as needed
+    });
+});
+</code></pre>
+<p>This test ensures that your <code>MyStorageAccount</code> resource correctly creates an Azure Storage Account with the specified settings.</p>
+<h3 id="73-running-jest-tests"><a class="header" href="#73-running-jest-tests">7.3 Running Jest Tests</a></h3>
+<p>To run your Jest tests for Pulumi code, you can use the <code>jest</code> command:</p>
+<pre><code class="language-bash">npx jest
+</code></pre>
+<p>This will execute all the test suites in your project.</p>
+<h3 id="74-benefits-of-testing-with-jest"><a class="header" href="#74-benefits-of-testing-with-jest">7.4 Benefits of Testing with Jest</a></h3>
+<ul>
+<li><strong>Isolation</strong>: Jest allows you to run tests in isolation, ensuring that changes in one part of your infrastructure code do not affect others.</li>
+<li><strong>Easy Setup</strong>: Setting up Jest for testing Pulumi code is straightforward and doesn't require complex configurations.</li>
+<li><strong>Continuous Integration</strong>: Jest is commonly used in continuous integration pipelines, allowing you to automate tests when you push changes to your code repository.</li>
+</ul>
+<h3 id="75-best-practices-for-testing-infrastructure-as-code"><a class="header" href="#75-best-practices-for-testing-infrastructure-as-code">7.5 Best Practices for Testing Infrastructure as Code</a></h3>
+<p>Here are some best practices to consider when testing your infrastructure code:</p>
+<ul>
+<li><strong>Test All Code Paths</strong>: Ensure that your tests cover various scenarios, including edge cases and error conditions.</li>
+<li><strong>Use Mocks and Stubs</strong>: Mock external services or dependencies to isolate your tests from the real infrastructure.</li>
+<li><strong>Automate Testing</strong>: Integrate testing into your CI/CD pipeline to catch issues early.</li>
+<li><strong>Keep Tests Simple</strong>: Write tests that are easy to understand and maintain.</li>
+<li><strong>Monitor and Review</strong>: Continuously monitor test results and review failing tests promptly.</li>
+</ul>
+<p>In the next section, we'll explore continuous integration (CI) to automate testing and deployments in your infrastructure projects.</p>
+<p>Stay tuned for more insights into testing your Pulumi infrastructure code with Jest!</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="continuous-integration"><a class="header" href="#continuous-integration">Continuous Integration</a></h1>
+<p>Continuous Integration (CI) is crucial for automating the building, testing, and deployment of your Pulumi infrastructure code. In this section, we'll explore how to set up CI for your Pulumi projects using Azure DevOps Pipelines.</p>
+<h3 id="81-why-use-continuous-integration"><a class="header" href="#81-why-use-continuous-integration">8.1 Why Use Continuous Integration?</a></h3>
+<p>Continuous Integration provides several advantages for your Pulumi infrastructure code:</p>
+<ul>
+<li><strong>Automated Testing</strong>: Automatically run tests whenever changes are pushed, ensuring issues are detected early.</li>
+<li><strong>Consistency</strong>: Ensure all code changes go through the same testing and deployment process.</li>
+<li><strong>Efficiency</strong>: Reduce manual effort and minimize human errors in deployments.</li>
+<li><strong>Visibility</strong>: Gain insights into build and test results.</li>
+</ul>
+<h3 id="82-setting-up-ci-with-azure-devops-pipelines"><a class="header" href="#82-setting-up-ci-with-azure-devops-pipelines">8.2 Setting Up CI with Azure DevOps Pipelines</a></h3>
+<p>Azure DevOps Pipelines is a CI/CD platform that integrates seamlessly with Azure services. Here's how you can set up CI for your Pulumi project using Azure DevOps Pipelines:</p>
+<h4 id="821-create-a-pipeline"><a class="header" href="#821-create-a-pipeline">8.2.1 Create a Pipeline</a></h4>
+<ol>
+<li>
+<p>Navigate to your Azure DevOps project and select your repository.</p>
+</li>
+<li>
+<p>Click on &quot;Pipelines&quot; in the left sidebar and then click the &quot;New Pipeline&quot; button.</p>
+</li>
+<li>
+<p>Follow the guided setup to create a new pipeline. You'll need to choose your repository, configure your pipeline settings, and choose a template.</p>
+</li>
+</ol>
+<h4 id="822-define-the-pipeline"><a class="header" href="#822-define-the-pipeline">8.2.2 Define the Pipeline</a></h4>
+<p>Once you've created your pipeline, you'll define the CI workflow using YAML or the visual designer. Below is a basic YAML example for a Pulumi project:</p>
+<pre><code class="language-yaml">trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- script: |
+    npm install
+    npm test
+  displayName: 'Run tests'
+</code></pre>
+<p>This pipeline:</p>
+<ul>
+<li>Triggers on every push to the <code>main</code> branch.</li>
+<li>Uses an Ubuntu-based agent.</li>
+<li>Installs project dependencies and runs tests using the specified script.</li>
+</ul>
+<h4 id="823-customize-your-pipeline"><a class="header" href="#823-customize-your-pipeline">8.2.3 Customize Your Pipeline</a></h4>
+<p>You can customize your Azure DevOps pipeline to fit your specific needs. For example, you can add deployment steps to provision your Pulumi infrastructure to Azure after successful tests.</p>
+<h4 id="824-save-and-run"><a class="header" href="#824-save-and-run">8.2.4 Save and Run</a></h4>
+<p>Save your pipeline configuration and trigger a manual or automatic run to start the CI process.</p>
+<h3 id="83-benefits-of-ci-with-azure-devops-pipelines"><a class="header" href="#83-benefits-of-ci-with-azure-devops-pipelines">8.3 Benefits of CI with Azure DevOps Pipelines</a></h3>
+<ul>
+<li><strong>Azure Integration</strong>: Seamlessly integrates with Azure services for infrastructure deployments.</li>
+<li><strong>Customization</strong>: Define custom workflows tailored to your project's requirements.</li>
+<li><strong>Scalability</strong>: Azure DevOps Pipelines can scale to handle complex CI/CD pipelines.</li>
+<li><strong>Artifact Management</strong>: Easily manage and deploy built artifacts.</li>
+</ul>
+<h3 id="84-best-practices-for-ci"><a class="header" href="#84-best-practices-for-ci">8.4 Best Practices for CI</a></h3>
+<p>Here are some best practices to consider when setting up CI for your Pulumi projects using Azure DevOps Pipelines:</p>
+<ul>
+<li><strong>Fast Feedback</strong>: Keep your CI builds fast to provide developers with quick feedback on their changes.</li>
+<li><strong>Parallelization</strong>: Run tests in parallel to save time.</li>
+<li><strong>Environment Isolation</strong>: Isolate test environments to prevent interference between different tests.</li>
+<li><strong>Artifact Management</strong>: Use CI to build and store artifacts for deployments.</li>
+<li><strong>Notifications</strong>: Configure notifications to alert team members of build and test results.</li>
+</ul>
+<p>With CI in place using Azure DevOps Pipelines, you can ensure that your Pulumi infrastructure code is continually validated, helping you maintain a reliable and error-free infrastructure.</p>
+<p>In the next section, we'll explore collaboration best practices and advanced topics in Pulumi.</p>
+<p>Stay tuned for more insights into automating your Pulumi workflow with CI using Azure DevOps Pipelines!</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="collaboration-and-best-practices"><a class="header" href="#collaboration-and-best-practices">Collaboration and Best Practices</a></h1>
+<h2 id="9-collaboration-best-practices-for-pulumi-projects"><a class="header" href="#9-collaboration-best-practices-for-pulumi-projects">9. Collaboration Best Practices for Pulumi Projects</a></h2>
+<p>Collaboration is essential in any software development project, and Pulumi infrastructure as code (IaC) projects are no exception. In this section, we'll explore best practices for collaborating effectively on Pulumi projects, especially when using Azure DevOps Pipelines for CI/CD.</p>
+<h3 id="91-collaborative-development-with-pulumi"><a class="header" href="#91-collaborative-development-with-pulumi">9.1 Collaborative Development with Pulumi</a></h3>
+<h4 id="use-version-control"><a class="header" href="#use-version-control">Use Version Control</a></h4>
+<ul>
+<li><strong>Version Control</strong>: Utilize a version control system like Git to manage your Pulumi code. Platforms like GitHub or Azure DevOps Repos provide collaboration features such as pull requests and code reviews.</li>
+</ul>
+<h4 id="infrastructure-as-code-review"><a class="header" href="#infrastructure-as-code-review">Infrastructure as Code Review</a></h4>
+<ul>
+<li><strong>Code Review</strong>: Implement a code review process to ensure that infrastructure changes are reviewed by team members. This helps catch potential issues early and ensures code quality.</li>
+</ul>
+<h4 id="branching-strategy"><a class="header" href="#branching-strategy">Branching Strategy</a></h4>
+<ul>
+<li><strong>Branching</strong>: Define a branching strategy that suits your team's workflow. For example, you might have feature branches for new infrastructure components and a stable <code>main</code> branch for production-ready code.</li>
+</ul>
+<h3 id="92-collaboration-in-cicd-pipelines"><a class="header" href="#92-collaboration-in-cicd-pipelines">9.2 Collaboration in CI/CD Pipelines</a></h3>
+<h4 id="cicd-integration"><a class="header" href="#cicd-integration">CI/CD Integration</a></h4>
+<ul>
+<li><strong>Integrate CI/CD</strong>: Integrate CI/CD pipelines into your collaboration process. Azure DevOps Pipelines, for example, allows you to automate infrastructure deployments after code reviews and tests pass.</li>
+</ul>
+<h4 id="artifact-sharing"><a class="header" href="#artifact-sharing">Artifact Sharing</a></h4>
+<ul>
+<li><strong>Artifact Sharing</strong>: Share built artifacts among team members. This ensures that everyone is deploying from the same tested and approved code.</li>
+</ul>
+<h4 id="role-based-access-control"><a class="header" href="#role-based-access-control">Role-Based Access Control</a></h4>
+<ul>
+<li><strong>RBAC</strong>: Implement role-based access control (RBAC) for CI/CD pipelines. Limit access to critical operations to authorized personnel only.</li>
+</ul>
+<h3 id="93-collaboration-in-a-hybrid-environment"><a class="header" href="#93-collaboration-in-a-hybrid-environment">9.3 Collaboration in a Hybrid Environment</a></h3>
+<h4 id="collaboration-tools"><a class="header" href="#collaboration-tools">Collaboration Tools</a></h4>
+<ul>
+<li><strong>Tools Integration</strong>: Make use of collaboration tools such as Slack, Microsoft Teams, or similar platforms to facilitate communication among team members.</li>
+</ul>
+<h4 id="documentation"><a class="header" href="#documentation">Documentation</a></h4>
+<ul>
+<li><strong>Documentation</strong>: Maintain clear and up-to-date documentation for your infrastructure. Document deployment procedures, configurations, and any custom scripts used.</li>
+</ul>
+<h3 id="94-best-practices-for-handling-secrets"><a class="header" href="#94-best-practices-for-handling-secrets">9.4 Best Practices for Handling Secrets</a></h3>
+<h4 id="secret-management"><a class="header" href="#secret-management">Secret Management</a></h4>
+<ul>
+<li><strong>Secret Management</strong>: Use a secure secret management solution to store sensitive information like API keys and credentials. Azure Key Vault is a good option when working with Azure.</li>
+</ul>
+<h4 id="avoid-hardcoding"><a class="header" href="#avoid-hardcoding">Avoid Hardcoding</a></h4>
+<ul>
+<li><strong>Avoid Hardcoding</strong>: Never hardcode secrets in your code or configuration files. Instead, load secrets from secure sources at runtime.</li>
+</ul>
+<h3 id="95-collaboration-communication"><a class="header" href="#95-collaboration-communication">9.5 Collaboration Communication</a></h3>
+<h4 id="communication-channels"><a class="header" href="#communication-channels">Communication Channels</a></h4>
+<ul>
+<li><strong>Communication Channels</strong>: Establish communication channels for discussing infrastructure changes. Regular team meetings or chat channels dedicated to infrastructure can be valuable.</li>
+</ul>
+<h4 id="notifications"><a class="header" href="#notifications">Notifications</a></h4>
+<ul>
+<li><strong>Notifications</strong>: Set up notifications for important events in your CI/CD pipeline. Get alerts when deployments fail or when changes are pushed to critical branches.</li>
+</ul>
+<h3 id="96-testing-and-validation"><a class="header" href="#96-testing-and-validation">9.6 Testing and Validation</a></h3>
+<h4 id="pre-deployment-testing"><a class="header" href="#pre-deployment-testing">Pre-Deployment Testing</a></h4>
+<ul>
+<li><strong>Pre-Deployment Testing</strong>: Ensure that your CI/CD pipeline includes pre-deployment testing stages to catch issues before they reach production.</li>
+</ul>
+<h4 id="validation-gates"><a class="header" href="#validation-gates">Validation Gates</a></h4>
+<ul>
+<li><strong>Validation Gates</strong>: Implement validation gates in your pipeline to enforce compliance with coding standards and security requirements.</li>
+</ul>
+<h3 id="97-monitoring-and-feedback"><a class="header" href="#97-monitoring-and-feedback">9.7 Monitoring and Feedback</a></h3>
+<h4 id="monitoring"><a class="header" href="#monitoring">Monitoring</a></h4>
+<ul>
+<li><strong>Monitoring</strong>: Implement monitoring and logging for your infrastructure to detect and troubleshoot issues in real-time.</li>
+</ul>
+<h4 id="feedback-loops"><a class="header" href="#feedback-loops">Feedback Loops</a></h4>
+<ul>
+<li><strong>Feedback Loops</strong>: Establish feedback loops with team members and stakeholders to continuously improve your infrastructure and deployment processes.</li>
+</ul>
+<p>By following these best practices, you can foster effective collaboration on your Pulumi projects, streamline your CI/CD pipelines, and ensure the reliability and security of your infrastructure.</p>
+<p>In the next section, we'll explore advanced topics and considerations for managing complex Pulumi deployments.</p>
+<p>Stay tuned for more insights into collaboration best practices in Pulumi projects!</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="collaboration"><a class="header" href="#collaboration">Collaboration</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="best-practices"><a class="header" href="#best-practices">Best Practices</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="advanced-topics"><a class="header" href="#advanced-topics">Advanced Topics</a></h1>
+<p>Certainly, let's proceed to the final section where we'll delve into advanced topics and considerations for managing complex Pulumi deployments.</p>
+<h2 id="10-advanced-topics-in-pulumi"><a class="header" href="#10-advanced-topics-in-pulumi">10. Advanced Topics in Pulumi</a></h2>
+<p>In this section, we'll explore advanced topics and considerations for managing complex Pulumi deployments in Azure.</p>
+<h3 id="101-infrastructure-as-code-iac-patterns"><a class="header" href="#101-infrastructure-as-code-iac-patterns">10.1 Infrastructure as Code (IaC) Patterns</a></h3>
+<h4 id="modularization"><a class="header" href="#modularization">Modularization</a></h4>
+<ul>
+<li><strong>Modularization</strong>: Break down your infrastructure code into reusable modules to manage complexity and promote code reusability. Pulumi supports the creation of custom components and modules that encapsulate infrastructure patterns.</li>
+</ul>
+<h4 id="composition"><a class="header" href="#composition">Composition</a></h4>
+<ul>
+<li><strong>Composition</strong>: Use composition techniques to combine modules and resources efficiently. This allows you to create complex infrastructure from simpler building blocks.</li>
+</ul>
+<h4 id="hierarchical-stacks"><a class="header" href="#hierarchical-stacks">Hierarchical Stacks</a></h4>
+<ul>
+<li><strong>Hierarchical Stacks</strong>: Leverage hierarchical stack management to represent multiple environments (dev, staging, prod) within a single Pulumi project. Share common infrastructure code while customizing configurations for each environment.</li>
+</ul>
+<h3 id="102-infrastructure-testing-strategies"><a class="header" href="#102-infrastructure-testing-strategies">10.2 Infrastructure Testing Strategies</a></h3>
+<h4 id="integration-tests"><a class="header" href="#integration-tests">Integration Tests</a></h4>
+<ul>
+<li><strong>Integration Tests</strong>: Implement integration tests that validate your entire infrastructure deployment, including dependencies between resources.</li>
+</ul>
+<h4 id="property-testing"><a class="header" href="#property-testing">Property Testing</a></h4>
+<ul>
+<li><strong>Property Testing</strong>: Use property-based testing frameworks to verify that your infrastructure properties hold true under various conditions.</li>
+</ul>
+<h4 id="infrastructure-as-code-linters"><a class="header" href="#infrastructure-as-code-linters">Infrastructure as Code Linters</a></h4>
+<ul>
+<li><strong>Linters</strong>: Employ Infrastructure as Code (IaC) linters like <code>checkov</code> or <code>Terraform TFLint</code> to automatically detect issues in your code related to security, best practices, and compliance.</li>
+</ul>
+<h3 id="103-advanced-azure-resource-management"><a class="header" href="#103-advanced-azure-resource-management">10.3 Advanced Azure Resource Management</a></h3>
+<h4 id="azure-policy-and-blueprints"><a class="header" href="#azure-policy-and-blueprints">Azure Policy and Blueprints</a></h4>
+<ul>
+<li><strong>Azure Policy</strong>: Implement Azure Policy to enforce organizational standards and compliance in your Azure subscriptions.</li>
+<li><strong>Azure Blueprints</strong>: Use Azure Blueprints to orchestrate the deployment of compliant environments.</li>
+</ul>
+<h4 id="custom-providers"><a class="header" href="#custom-providers">Custom Providers</a></h4>
+<ul>
+<li><strong>Custom Providers</strong>: If Pulumi's Azure provider doesn't support a specific Azure service or resource, consider creating a custom provider using Pulumi's Provider SDK.</li>
+</ul>
+<h3 id="104-infrastructure-automation"><a class="header" href="#104-infrastructure-automation">10.4 Infrastructure Automation</a></h3>
+<h4 id="event-driven-infrastructure"><a class="header" href="#event-driven-infrastructure">Event-Driven Infrastructure</a></h4>
+<ul>
+<li><strong>Event-Driven Infrastructure</strong>: Implement event-driven infrastructure by integrating your Pulumi code with Azure Functions or Logic Apps. Automatically scale resources based on events or triggers.</li>
+</ul>
+<h4 id="infrastructure-as-code-repositories"><a class="header" href="#infrastructure-as-code-repositories">Infrastructure as Code Repositories</a></h4>
+<ul>
+<li><strong>IaC Repositories</strong>: Maintain separate repositories for your infrastructure code to manage versioning, collaborate with team members, and apply CI/CD specifically for your infrastructure codebase.</li>
+</ul>
+<h3 id="105-security-and-compliance"><a class="header" href="#105-security-and-compliance">10.5 Security and Compliance</a></h3>
+<h4 id="azure-security-center"><a class="header" href="#azure-security-center">Azure Security Center</a></h4>
+<ul>
+<li><strong>Azure Security Center</strong>: Leverage Azure Security Center to monitor and improve the security posture of your Azure resources. Integrate security recommendations into your deployment pipeline.</li>
+</ul>
+<h4 id="compliance-frameworks"><a class="header" href="#compliance-frameworks">Compliance Frameworks</a></h4>
+<ul>
+<li><strong>Compliance Frameworks</strong>: Align your infrastructure with industry-specific compliance standards like HIPAA, GDPR, or SOC 2. Implement controls and document adherence to these frameworks.</li>
+</ul>
+<h3 id="106-disaster-recovery-and-high-availability"><a class="header" href="#106-disaster-recovery-and-high-availability">10.6 Disaster Recovery and High Availability</a></h3>
+<h4 id="geo-redundancy"><a class="header" href="#geo-redundancy">Geo-Redundancy</a></h4>
+<ul>
+<li><strong>Geo-Redundancy</strong>: Implement geo-redundancy for critical resources to ensure high availability and disaster recovery.</li>
+</ul>
+<h4 id="automated-backups"><a class="header" href="#automated-backups">Automated Backups</a></h4>
+<ul>
+<li><strong>Automated Backups</strong>: Set up automated backups for data and configurations to minimize data loss in case of failures.</li>
+</ul>
+<p>By exploring and implementing these advanced topics and considerations, you can manage complex Pulumi deployments in Azure with confidence, maintain high levels of reliability and security, and adapt to evolving infrastructure needs.</p>
+<p>With that, we've covered a comprehensive range of topics related to using Pulumi with Azure. We hope this tutorial has provided you with valuable insights and guidance for effectively managing your infrastructure as code projects.</p>
+<p>If you have any more specific questions or need further assistance, please feel free to ask. Good luck with your Pulumi endeavors!</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="custom-resources"><a class="header" href="#custom-resources">Custom Resources</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="remote-stacks"><a class="header" href="#remote-stacks">Remote Stacks</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="pulumi-crosswalk-for-azure"><a class="header" href="#pulumi-crosswalk-for-azure">Pulumi Crosswalk for Azure</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="conclusion"><a class="header" href="#conclusion">Conclusion</a></h1>
+<pre><code class="language-typescript">import * as azure from &quot;@pulumi/azure&quot;;
+
+// Define an Azure Resource Group
+const resourceGroup = new azure.core.ResourceGroup(&quot;myResourceGroup&quot;, {
+    location: &quot;East US&quot;,
+});
+
+// Define an Azure Virtual Network
+const virtualNetwork = new azure.network.VirtualNetwork(&quot;myVnet&quot;, {
+    resourceGroupName: resourceGroup.name,
+    addressSpaces: [&quot;10.0.0.0/16&quot;],
+    subnets: [
+        {
+            name: &quot;subnet-1&quot;,
+            addressPrefix: &quot;10.0.1.0/24&quot;,
+        },
+        {
+            name: &quot;subnet-2&quot;,
+            addressPrefix: &quot;10.0.2.0/24&quot;,
+        },
+    ],
+});
+
+// Define an Azure Virtual Machine
+const virtualMachine = new azure.compute.VirtualMachine(&quot;myVm&quot;, {
+    resourceGroupName: resourceGroup.name,
+    vmSize: &quot;Standard_A0&quot;,
+    networkInterfaceIds: [networkInterface.id],
+    osProfile: {
+        computerName: &quot;hostname&quot;,
+        adminUsername: &quot;adminuser&quot;,
+        adminPassword: &quot;Password1234!&quot;,
+    },
+    storageOsDisk: {
+        name: &quot;osdisk&quot;,
+        createOption: &quot;FromImage&quot;,
+        caching: &quot;ReadWrite&quot;,
+    },
+    storageImageReference: {
+        publisher: &quot;Canonical&quot;,
+        offer: &quot;UbuntuServer&quot;,
+        sku: &quot;18.04-LTS&quot;,
+        version: &quot;latest&quot;,
+    },
+});
+
+// Define an Azure Storage Account
+const storageAccount = new azure.storage.Account(&quot;mystorage&quot;, {
+    resourceGroupName: resourceGroup.name,
+    accountReplicationType: &quot;LRS&quot;,
+    accountTier: &quot;Standard&quot;,
+});
+
+// Define an Azure Function App
+const functionApp = new azure.appservice.FunctionApp(&quot;myFunctionApp&quot;, {
+    resourceGroupName: resourceGroup.name,
+    appServicePlanId: appServicePlan.id,
+    version: &quot;~3&quot;,
+    storageAccountName: storageAccount.name,
+    osType: &quot;Linux&quot;,
+    runtime: &quot;node&quot;,
+});
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+    </div>
+    </body>
+</html>
