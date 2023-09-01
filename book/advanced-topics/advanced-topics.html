@@ -1,0 +1,290 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Advanced Topics</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../introduction/introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../introduction/installation.html"><strong aria-hidden="true">1.1.</strong> Installation and Setup</a></li><li class="chapter-item expanded "><a href="../introduction/first-stack.html"><strong aria-hidden="true">1.2.</strong> Creating Your First Stack</a></li></ol></li><li class="chapter-item expanded "><a href="../infra-as-code/infra-as-code.html"><strong aria-hidden="true">2.</strong> Defining Infrastructure with Code</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../infra-as-code/creating-resources.html"><strong aria-hidden="true">2.1.</strong> Creating Resources</a></li><li class="chapter-item expanded "><a href="../infra-as-code/configuring-resources.html"><strong aria-hidden="true">2.2.</strong> Configuring Resources</a></li><li class="chapter-item expanded "><a href="../infra-as-code/using-variables.html"><strong aria-hidden="true">2.3.</strong> Using Variables</a></li></ol></li><li class="chapter-item expanded "><a href="../stacks-and-environments/stacks-and-environments.html"><strong aria-hidden="true">3.</strong> Managing Stacks and Environments</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../stacks-and-environments/multiple-stacks.html"><strong aria-hidden="true">3.1.</strong> Multiple Stacks</a></li><li class="chapter-item expanded "><a href="../stacks-and-environments/configuration-and-secrets.html"><strong aria-hidden="true">3.2.</strong> Configuration and Secrets</a></li><li class="chapter-item expanded "><a href="../stacks-and-environments/stack-updates.html"><strong aria-hidden="true">3.3.</strong> Stack Updates</a></li></ol></li><li class="chapter-item expanded "><a href="../real-world-scenarios/real-world-scenarios.html"><strong aria-hidden="true">4.</strong> Working with Real-World Scenarios</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../real-world-scenarios/web-application-deployment.html"><strong aria-hidden="true">4.1.</strong> Web Application Deployment</a></li><li class="chapter-item expanded "><a href="../real-world-scenarios/serverless-backend.html"><strong aria-hidden="true">4.2.</strong> Serverless Backend</a></li></ol></li><li class="chapter-item expanded "><a href="../testing-and-ci/testing-and-ci.html"><strong aria-hidden="true">5.</strong> Testing and Continuous Integration</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../testing-and-ci/testing-infrastructure-code.html"><strong aria-hidden="true">5.1.</strong> Testing Infrastructure Code</a></li><li class="chapter-item expanded "><a href="../testing-and-ci/continuous-integration.html"><strong aria-hidden="true">5.2.</strong> Continuous Integration</a></li></ol></li><li class="chapter-item expanded "><a href="../collaboration-and-best-practices/collaboration-and-best-practices.html"><strong aria-hidden="true">6.</strong> Collaboration and Best Practices</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../collaboration-and-best-practices/collaboration.html"><strong aria-hidden="true">6.1.</strong> Collaboration</a></li><li class="chapter-item expanded "><a href="../collaboration-and-best-practices/best-practices.html"><strong aria-hidden="true">6.2.</strong> Best Practices</a></li></ol></li><li class="chapter-item expanded "><a href="../advanced-topics/advanced-topics.html" class="active"><strong aria-hidden="true">7.</strong> Advanced Topics</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../advanced-topics/custom-resources.html"><strong aria-hidden="true">7.1.</strong> Custom Resources</a></li><li class="chapter-item expanded "><a href="../advanced-topics/remote-stacks.html"><strong aria-hidden="true">7.2.</strong> Remote Stacks</a></li><li class="chapter-item expanded "><a href="../advanced-topics/pulumi-crosswalk-for-azure.html"><strong aria-hidden="true">7.3.</strong> Pulumi Crosswalk for Azure</a></li></ol></li><li class="chapter-item expanded "><a href="../conclusion/conclusion.html"><strong aria-hidden="true">8.</strong> Conclusion</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="advanced-topics"><a class="header" href="#advanced-topics">Advanced Topics</a></h1>
+<p>Certainly, let's proceed to the final section where we'll delve into advanced topics and considerations for managing complex Pulumi deployments.</p>
+<h2 id="10-advanced-topics-in-pulumi"><a class="header" href="#10-advanced-topics-in-pulumi">10. Advanced Topics in Pulumi</a></h2>
+<p>In this section, we'll explore advanced topics and considerations for managing complex Pulumi deployments in Azure.</p>
+<h3 id="101-infrastructure-as-code-iac-patterns"><a class="header" href="#101-infrastructure-as-code-iac-patterns">10.1 Infrastructure as Code (IaC) Patterns</a></h3>
+<h4 id="modularization"><a class="header" href="#modularization">Modularization</a></h4>
+<ul>
+<li><strong>Modularization</strong>: Break down your infrastructure code into reusable modules to manage complexity and promote code reusability. Pulumi supports the creation of custom components and modules that encapsulate infrastructure patterns.</li>
+</ul>
+<h4 id="composition"><a class="header" href="#composition">Composition</a></h4>
+<ul>
+<li><strong>Composition</strong>: Use composition techniques to combine modules and resources efficiently. This allows you to create complex infrastructure from simpler building blocks.</li>
+</ul>
+<h4 id="hierarchical-stacks"><a class="header" href="#hierarchical-stacks">Hierarchical Stacks</a></h4>
+<ul>
+<li><strong>Hierarchical Stacks</strong>: Leverage hierarchical stack management to represent multiple environments (dev, staging, prod) within a single Pulumi project. Share common infrastructure code while customizing configurations for each environment.</li>
+</ul>
+<h3 id="102-infrastructure-testing-strategies"><a class="header" href="#102-infrastructure-testing-strategies">10.2 Infrastructure Testing Strategies</a></h3>
+<h4 id="integration-tests"><a class="header" href="#integration-tests">Integration Tests</a></h4>
+<ul>
+<li><strong>Integration Tests</strong>: Implement integration tests that validate your entire infrastructure deployment, including dependencies between resources.</li>
+</ul>
+<h4 id="property-testing"><a class="header" href="#property-testing">Property Testing</a></h4>
+<ul>
+<li><strong>Property Testing</strong>: Use property-based testing frameworks to verify that your infrastructure properties hold true under various conditions.</li>
+</ul>
+<h4 id="infrastructure-as-code-linters"><a class="header" href="#infrastructure-as-code-linters">Infrastructure as Code Linters</a></h4>
+<ul>
+<li><strong>Linters</strong>: Employ Infrastructure as Code (IaC) linters like <code>checkov</code> or <code>Terraform TFLint</code> to automatically detect issues in your code related to security, best practices, and compliance.</li>
+</ul>
+<h3 id="103-advanced-azure-resource-management"><a class="header" href="#103-advanced-azure-resource-management">10.3 Advanced Azure Resource Management</a></h3>
+<h4 id="azure-policy-and-blueprints"><a class="header" href="#azure-policy-and-blueprints">Azure Policy and Blueprints</a></h4>
+<ul>
+<li><strong>Azure Policy</strong>: Implement Azure Policy to enforce organizational standards and compliance in your Azure subscriptions.</li>
+<li><strong>Azure Blueprints</strong>: Use Azure Blueprints to orchestrate the deployment of compliant environments.</li>
+</ul>
+<h4 id="custom-providers"><a class="header" href="#custom-providers">Custom Providers</a></h4>
+<ul>
+<li><strong>Custom Providers</strong>: If Pulumi's Azure provider doesn't support a specific Azure service or resource, consider creating a custom provider using Pulumi's Provider SDK.</li>
+</ul>
+<h3 id="104-infrastructure-automation"><a class="header" href="#104-infrastructure-automation">10.4 Infrastructure Automation</a></h3>
+<h4 id="event-driven-infrastructure"><a class="header" href="#event-driven-infrastructure">Event-Driven Infrastructure</a></h4>
+<ul>
+<li><strong>Event-Driven Infrastructure</strong>: Implement event-driven infrastructure by integrating your Pulumi code with Azure Functions or Logic Apps. Automatically scale resources based on events or triggers.</li>
+</ul>
+<h4 id="infrastructure-as-code-repositories"><a class="header" href="#infrastructure-as-code-repositories">Infrastructure as Code Repositories</a></h4>
+<ul>
+<li><strong>IaC Repositories</strong>: Maintain separate repositories for your infrastructure code to manage versioning, collaborate with team members, and apply CI/CD specifically for your infrastructure codebase.</li>
+</ul>
+<h3 id="105-security-and-compliance"><a class="header" href="#105-security-and-compliance">10.5 Security and Compliance</a></h3>
+<h4 id="azure-security-center"><a class="header" href="#azure-security-center">Azure Security Center</a></h4>
+<ul>
+<li><strong>Azure Security Center</strong>: Leverage Azure Security Center to monitor and improve the security posture of your Azure resources. Integrate security recommendations into your deployment pipeline.</li>
+</ul>
+<h4 id="compliance-frameworks"><a class="header" href="#compliance-frameworks">Compliance Frameworks</a></h4>
+<ul>
+<li><strong>Compliance Frameworks</strong>: Align your infrastructure with industry-specific compliance standards like HIPAA, GDPR, or SOC 2. Implement controls and document adherence to these frameworks.</li>
+</ul>
+<h3 id="106-disaster-recovery-and-high-availability"><a class="header" href="#106-disaster-recovery-and-high-availability">10.6 Disaster Recovery and High Availability</a></h3>
+<h4 id="geo-redundancy"><a class="header" href="#geo-redundancy">Geo-Redundancy</a></h4>
+<ul>
+<li><strong>Geo-Redundancy</strong>: Implement geo-redundancy for critical resources to ensure high availability and disaster recovery.</li>
+</ul>
+<h4 id="automated-backups"><a class="header" href="#automated-backups">Automated Backups</a></h4>
+<ul>
+<li><strong>Automated Backups</strong>: Set up automated backups for data and configurations to minimize data loss in case of failures.</li>
+</ul>
+<p>By exploring and implementing these advanced topics and considerations, you can manage complex Pulumi deployments in Azure with confidence, maintain high levels of reliability and security, and adapt to evolving infrastructure needs.</p>
+<p>With that, we've covered a comprehensive range of topics related to using Pulumi with Azure. We hope this tutorial has provided you with valuable insights and guidance for effectively managing your infrastructure as code projects.</p>
+<p>If you have any more specific questions or need further assistance, please feel free to ask. Good luck with your Pulumi endeavors!</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../collaboration-and-best-practices/best-practices.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../advanced-topics/custom-resources.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../collaboration-and-best-practices/best-practices.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../advanced-topics/custom-resources.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
